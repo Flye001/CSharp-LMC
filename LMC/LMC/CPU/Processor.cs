@@ -19,9 +19,12 @@ namespace LMC
 			Registers = new Registers();
 		}
 
-		public void RunCode(Script script)
+		public void Execute(RandomAccessMemory RAM)
 		{
-
+			foreach (int command in RAM.Memory)
+			{
+				Console.WriteLine(command);
+			}
 		}
 	}
 }

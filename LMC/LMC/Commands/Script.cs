@@ -9,5 +9,10 @@ namespace LMC
 	public class Script
 	{
 		public List<Command> Commands { get; set; }
+
+		public Script()
+		{
+			Commands = new List<Command>();
+		}
 	}
 }
