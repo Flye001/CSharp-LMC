@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LMC
+﻿namespace LMC
 {
 	public class Processor
 	{
-		private ControlUnit CU { get; set; }
-		private ArithmeticLogicUnit ALU { get; set; }
-		private Registers Registers { get; set; }
+		public ControlUnit CU { get; private set; }
+		public ArithmeticLogicUnit ALU { get; private set; }
+		public Registers Registers { get; private set; }
 
 		public Processor()
 		{
@@ -21,10 +15,12 @@ namespace LMC
 
 		public void Execute(RandomAccessMemory RAM)
 		{
-			foreach (int command in RAM.Memory)
-			{
-				Console.WriteLine(command);
-			}
+			CU.BeginFDE(this, RAM);
+		}
+
+		public string GetRegisters()
+		{
+			return $"PC: {Registers.PC}, MAR: {Registers.MAR}, MDR: {Registers.MDR}, ACC: {Registers.ACC}, CIR: {Registers.CIR}";
 		}
 	}
 }

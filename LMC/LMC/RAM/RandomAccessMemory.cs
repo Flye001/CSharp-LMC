@@ -21,8 +21,8 @@ namespace LMC
 			var count = 0;
 			foreach(Command cmd in script.Commands)
 			{
-				//Console.WriteLine(cmd.Operand.ToString("00"));
-				Memory[count] = int.Parse($"{cmd.Opcode}{cmd.Operand:00}");
+				Memory[count] = int.Parse(cmd.ToString());
+				count++;
 			}
 		}
 	}
